@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'vaccine.apps.VaccineConfig',
     'user.apps.UserConfig',
     'center.apps.CenterConfig',
-    'campain.apps.CampainConfig',
+    'campaign.apps.CampaignConfig',
     'vaccination.apps.VaccinationConfig',
 ]
 

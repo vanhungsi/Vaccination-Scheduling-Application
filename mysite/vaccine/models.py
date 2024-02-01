@@ -8,7 +8,7 @@ class Vaccine(models.Model):
     number_of_doses = models.IntegerField(default=1)
     interval = models.IntegerField(default=0, help_text="Please provide interval in days")
     storage_temperature = models.IntegerField(null=True, blank=True, help_text="Please provide temperature in celsius")
-    minium_age = models.IntegerField(default=0)
+    minimum_age = models.IntegerField(default=0)
 
     def __str__(self):
         return self.name

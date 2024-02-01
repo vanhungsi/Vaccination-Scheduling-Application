@@ -25,6 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('center/', include("center.urls", namespace="center")),
+    path('vaccine/', include("vaccine.urls", namespace="vaccine")),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

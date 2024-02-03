@@ -5,15 +5,18 @@ from .models import Vaccine
 from .forms import VaccineForm
 from django.urls import reverse
 from django.shortcuts import get_object_or_404, redirect
+
+
 # Create your views here.
 
 class VaccineList(View):
-     def get(self, request):
-         vaccine_list = Vaccine.objects.all()
-         context = {
-              'object_list': vaccine_list
-         }
-         return render(request, 'vaccine/vaccine-list.html', context)
+    def get(self, request):
+        vaccine_list = Vaccine.objects.all()
+        context = {
+            'object_list': vaccine_list
+        }
+        return render(request, 'vaccine/vaccine-list.html', context)
+
 
 class VaccineDetail(View):
     def get(self, request, id):
@@ -26,6 +29,7 @@ class VaccineDetail(View):
             'object': vaccine,
         }
         return render(request, 'vaccine/vaccine-detail.html', context)
+
 
 class CreateVaccine(View):
     form_class = VaccineForm
@@ -44,6 +48,7 @@ class CreateVaccine(View):
             return HttpResponseRedirect(reverse('vaccine:list'))
         return render(request, self.template_name, {'form': form})
 
+
 class UpdateVaccine(View):
     form_class = VaccineForm
     template_name = 'vaccine/update-vaccine.html'
@@ -60,7 +65,7 @@ class UpdateVaccine(View):
         form = self.form_class(request.POST, instance=vaccine)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect(reverse('vaccine:detail', kwargs={"id":vaccine.id}))
+            return HttpResponseRedirect(reverse('vaccine:detail', kwargs={"id": vaccine.id}))
         return render(request, self.template_name, {'form': form})
 
 
